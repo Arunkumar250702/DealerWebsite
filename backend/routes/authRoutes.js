@@ -3,13 +3,14 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const User = require("../models/User");
+const requireDb = require("../middleware/requireDb");
 
 const router = express.Router();
 
 /*
 REGISTER
 */
-router.post("/register", async (req, res) => {
+router.post("/register", requireDb, async (req, res) => {
 
     try {
 
@@ -59,7 +60,7 @@ router.post("/register", async (req, res) => {
 /*
 LOGIN
 */
-router.post("/login", async (req, res) => {
+router.post("/login", requireDb, async (req, res) => {
 
     try {
 

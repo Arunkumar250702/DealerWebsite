@@ -168,7 +168,11 @@ result.user.name + " ▼";
 
         console.error(error);
 
-        alert("Server Error");
+        alert(
+            error.message === "Failed to fetch"
+                ? "Cannot reach server. Check your internet connection."
+                : "Server error. Please try again."
+        );
 
     }
 
